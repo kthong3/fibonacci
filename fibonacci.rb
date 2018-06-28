@@ -1,14 +1,11 @@
 def calculate_fibonacci_number(number)
-  if number == 0
-    return 0
-  elsif number == 1
-    return 1
-  end
+  return 0 if number == 0
+  return 1 if number <= 2
 
   i = 1
   fib = [0, 1]
   until i == number
-    fib << (fib[-1] + fib[-2])
+    fib << fib.last(2).reduce(0) {|sum, n| sum + n}
     i += 1
   end
 
